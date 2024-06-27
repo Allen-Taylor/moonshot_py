@@ -41,7 +41,7 @@ systemProgram 11111111111111111111111111111111
 -----------------------------------------------------------------------------
 
 ```
-Update: 6/27/2024
+Update: 6/27/2024 - credit to Metalingus 
 
 Endpoint: https://ms.dexscreener.com/tx/v1/prepare
 

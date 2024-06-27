@@ -1,13 +1,13 @@
 # moonshot_py
+
 Swap on Moonshot with Python. 
 
+```
 Notes so far:
 
 Program - MoonCVVNZFSYkqNXP6bxHLPL6QQJiMagDL3qcqUQTrG
 
-
 BUY - 66063d1201daebe, amount, collateralAmount, slippageBps
-
 
 sender XXX Writable Signer Fee Payer
 
@@ -33,5 +33,32 @@ associatedTokenProgram ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL
 
 systemProgram 11111111111111111111111111111111
 
+-Buy transaction requires two signatures, the user keypair and the backendAuthority keypair.
 
--Buy transaction requires two signatures...
+```
+
+
+-----------------------------------------------------------------------------
+
+```
+Update: 6/27/2024
+
+Endpoint: https://ms.dexscreener.com/tx/v1/prepare
+
+Payload:
+{
+amount: "100000000000000"
+creatorPK: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" # public key
+direction: "buy"
+mintAddress: "5FaBJoqfPH5iv9NDFxgFfz9egBNNF5QPozMYuaBMmTvC"
+slippageBps: 1500
+}
+
+Response:
+{
+    "transaction": "Serialized transaction base64",
+    "token": "Some random generated hash ",
+    "direction": "buy"
+}
+
+```

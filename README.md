@@ -41,24 +41,42 @@ systemProgram 11111111111111111111111111111111
 -----------------------------------------------------------------------------
 
 ```
-Update: 6/27/2024 - credit to Metalingus 
+Last Update: 6/28/2024
+Credit to Metalingus (Klaus) and Andrew Gryffin
 
 Endpoint: https://ms.dexscreener.com/tx/v1/prepare
 
 Payload:
 {
-amount: "100000000000000"
-creatorPK: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" # public key
+amount: "",
+collateralAmount: "", 
+creatorPK: "" # public key, not priv key
 direction: "buy"
-mintAddress: "5FaBJoqfPH5iv9NDFxgFfz9egBNNF5QPozMYuaBMmTvC"
+mintAddress: ""
 slippageBps: 1500
 }
 
 Response:
 {
-    "transaction": "Serialized transaction base64",
-    "token": "Some random generated hash ",
+    "transaction": "Serialized Transaction Base64",
+    "token": "JSON Web Token",
     "direction": "buy"
 }
+
+Decode (Base 64) the prepared transaction into a versioned txn and sign it.
+Encode (Base 64) the signed versioned txn.
+
+Endpoint: https://ms.dexscreener.com/tx/v1/submit
+
+Payload:
+{
+direction: "buy",
+token: "JSON Web Token (from prepared endpoint)", 
+signedTransaction: "Serialized Signed Transaction"
+}
+
+Response
+
+???
 
 ```

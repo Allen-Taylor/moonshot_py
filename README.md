@@ -4,7 +4,7 @@ Swap on Moonshot with Python.
 
 ```
 
-Contact me if you would like to purchase early access to the code base.
+Contact me if you would like early access to the code base.
 
 The code base will be free in the future. 
 

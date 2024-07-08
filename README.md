@@ -1,7 +1,7 @@
 # moonshot_py
 Swap on Moonswap with Python. 
 
-### *** CONTACT ME FOR THE COMPLETED CURVE.PY FILE. ***
+### *** If you can - please support my work and donate to: 3pPK76GL5ChVFBHND54UfBMtg36Bsh1mzbQPTbcK89PD ***
 
 ### Swap Layout
 

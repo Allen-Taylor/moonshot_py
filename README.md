@@ -15,7 +15,7 @@ Do not change the hard-coded values as they are part of the actual buy/sell inst
 
 My services are for **hire**. Contact me if you need help integrating the code into your own project. 
 
-Telegram: Allen_A_Taylor (AL THE BOT FATHER)
+Telegram: @AL_THE_BOT_FATHER
 
 ### FAQS
 

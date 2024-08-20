@@ -1,7 +1,6 @@
-# moonshot_py
+# moonshot_py - this repo doesn't work after the latest update - anyone want to fix it? 
 Swap on Moonswap with Python. 
 
-**If you can - please support my work and donate to: 3pPK76GL5ChVFBHND54UfBMtg36Bsh1mzbQPTbcK89PD**
 
 ### Swap Layout
 

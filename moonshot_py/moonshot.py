@@ -1,5 +1,5 @@
 import struct
-from config import payer_keypair, client, PUB_KEY
+from config import payer_keypair, client
 from constants import *
 from solana.rpc.types import TokenAccountOpts, TxOpts
 from solana.transaction import AccountMeta

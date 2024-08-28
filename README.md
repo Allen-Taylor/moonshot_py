@@ -1,6 +1,8 @@
 # moonshot_py 
 
-Swap on Moonswap with Python. Updated: 8/29/2024
+Swap on Moonswap with Python. 
+
+Updated: 8/29/2024
 
 Note: I did not implement any of the curve calculations. I used token price instead. Repo needs more testing to see if it is stable.
 

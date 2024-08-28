@@ -1,14 +1,5 @@
-# moonshot_py - this repo doesn't work after the latest update - anyone want to fix it? 
-Swap on Moonswap with Python. 
-
-
-### Swap Layout
-
-Do not change the hard-coded values as they are part of the actual buy/sell instructions for the moonswap program. 
-
-**discriminator_as_int = 16927863322537952870**
-
-**discriminator_as_int = 12502976635542562355**
+# moonshot_py 
+Swap on Moonswap with Python. Updated: 8/29/2024
 
 ### Contact
 
@@ -37,17 +28,18 @@ from moonshot import buy
 
 # BUY EXAMPLE
 mint_str = "token_to_buy"
-buy(mint_str=mint_str, collateral_amount=0.01, slippage_bps=500)
+buy(mint_str=mint_str, sol_in=0.01, slippage_bps=500)
 
 ```
 ```
 from moonshot import sell
 from utils import get_token_balance
-from config import PUB_KEY
+from config import payer_keypair
 
 # SELL EXAMPLE
 mint_str = "token_to_sell"
-token_balance = get_token_balance(PUB_KEY, mint_str)
+pubkey_str = str(payer_keypair.pubkey())
+token_balance = get_token_balance(pubkey_str, mint_str)
 sell(mint_str=mint_str, token_balance=token_balance, slippage_bps=500)
 
 ```

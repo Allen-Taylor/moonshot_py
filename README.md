@@ -1,5 +1,8 @@
 # moonshot_py 
+
 Swap on Moonswap with Python. Updated: 8/29/2024
+
+Note: I did not implement any of the curve calculations. I used token price instead. Repo needs more testing to see if it is stable.
 
 ### Contact
 
@@ -15,7 +18,7 @@ The private key should be in the base58 string format, not bytes.
 
 **Why are my transactions being dropped?** 
 
-You get what you pay for. If you use the public RPC, you're going to get rekt. Spend the money for Helius or Quick Node. Also, play around with the compute limits and lamports.
+You get what you pay for. Don't use the main-net RPC, just spend the money for Helius or Quick Node.
 
 **What format is slippage in?** 
 
@@ -31,6 +34,7 @@ mint_str = "token_to_buy"
 buy(mint_str=mint_str, sol_in=0.01, slippage_bps=500)
 
 ```
+
 ```
 from moonshot import sell
 from utils import get_token_balance

@@ -171,7 +171,7 @@ def sell(mint_str: str, token_balance=None, slippage_bps: int=1500):
         data.extend(struct.pack('<Q', collateral_amount))
         data.extend(struct.pack('<B', 0))
         data.extend(struct.pack('<Q', slippage_bps))
-        data = bytes(token_data)
+        data = bytes(data)
         swap_instruction = Instruction(MOONSHOT_PROGRAM, data, keys)
         
         # Create transaction instructions

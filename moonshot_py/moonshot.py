@@ -165,18 +165,15 @@ def sell(mint_str: str, token_balance=None, slippage_bps: int=1500):
         ]
 
         # Construct the swap instruction
-        token_data = bytearray()
-        token_data.extend(bytes.fromhex("33e685a4017f83ad"))
-        token_data.extend(struct.pack('<Q', token_amount))
-        token_data.extend(struct.pack('<Q', collateral_amount))
-        token_data.extend(struct.pack('<B', 0))
-        token_data.extend(struct.pack('<Q', slippage_bps))
-        token_data = bytes(token_data)
-        swap_instruction = Instruction(MOONSHOT_PROGRAM, token_data, keys)
+        data = bytearray()
+        data.extend(bytes.fromhex("33e685a4017f83ad"))
+        data.extend(struct.pack('<Q', token_amount))
+        data.extend(struct.pack('<Q', collateral_amount))
+        data.extend(struct.pack('<B', 0))
+        data.extend(struct.pack('<Q', slippage_bps))
+        data = bytes(token_data)
+        swap_instruction = Instruction(MOONSHOT_PROGRAM, data, keys)
         
-        # Create the swap instruction
-        swap_instruction = Instruction(MOONSHOT_PROGRAM, token_data, keys)
-
         # Create transaction instructions
         instructions = []
         instructions.append(set_compute_unit_price(UNIT_PRICE))

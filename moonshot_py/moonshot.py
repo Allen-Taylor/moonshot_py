@@ -120,8 +120,7 @@ def sell(mint_str: str, token_balance=None, slippage_bps: int=1500):
     try:
         # Retrieve token balance if not provided
         if token_balance is None:
-            pubkey_str = str(payer_keypair.pubkey())
-            token_balance = get_token_balance(pubkey_str, mint_str)
+            token_balance = get_token_balance(mint_str)
         
         print(f"Token Balance: {token_balance}")
         

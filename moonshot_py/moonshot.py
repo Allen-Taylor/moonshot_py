@@ -31,10 +31,12 @@ def get_token_data(token_address):
 
 def buy(mint_str: str, sol_in: float = 0.01, slippage_bps: int = 1500):
     try:
+        # Get token data
         token_data = get_token_data(mint_str)
         if token_data == None:
             return
 
+        # Calculate token amount and collateral amount
         sol_decimal = 10**9
         token_decimal = 10**9
         token_price = token_data['priceNative']
@@ -42,8 +44,8 @@ def buy(mint_str: str, sol_in: float = 0.01, slippage_bps: int = 1500):
         token_amount = int(tokens_out * token_decimal)
         collateral_amount = int(sol_in * sol_decimal)
         print(f"Collateral Amount: {collateral_amount}, Token Amount: {token_amount}, Slippage (bps): {slippage_bps}")
-        
-        # Retrieve the public key of the owner
+
+        # Define sender and mint
         SENDER = payer_keypair.pubkey()
         MINT = Pubkey.from_string(mint_str)
         
@@ -124,25 +126,24 @@ def sell(mint_str: str, token_balance=None, slippage_bps: int=1500):
         # Retrieve token balance if not provided
         if token_balance is None:
             token_balance = get_token_balance(mint_str)
-        
         print(f"Token Balance: {token_balance}")
         
         # Check if the token balance is zero
         if token_balance == 0:
             return
-        
-        sol_decimal = 10**9
-        token_decimal = 10**9
+
+        # Get token data
         token_data = get_token_data(mint_str)
-        
         if token_data == None:
             return
-        
+
+        # Calculate token amount and collateral amount
+        sol_decimal = 10**9
+        token_decimal = 10**9
         token_price = token_data['priceNative']
         token_value = float(token_balance) * float(token_price)
         collateral_amount = int(token_value * sol_decimal)
         token_amount = int(token_balance * token_decimal)
-        
         print(f"Collateral Amount: {collateral_amount}, Token Amount: {token_amount}, Slippage (bps): {slippage_bps}")
         
         # Define account keys required for the swap

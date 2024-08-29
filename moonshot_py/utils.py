@@ -1,8 +1,6 @@
-import json
-import time
 import requests
 from solana.transaction import Signature
-from config import RPC, client
+from config import RPC, payer_keypair, client
 from solders.pubkey import Pubkey  # type: ignore
 from spl.token.instructions import get_associated_token_address
 
@@ -37,9 +35,9 @@ def find_data(data, field):
                 return result
     return None
 
-def get_token_balance(pub_key: str, token: str):
+def get_token_balance(mint_str: str):
     try:
-
+        pubkey_str = str(payer_keypair.pubkey())
         headers = {"accept": "application/json", "content-type": "application/json"}
 
         payload = {
@@ -47,8 +45,8 @@ def get_token_balance(pub_key: str, token: str):
             "jsonrpc": "2.0",
             "method": "getTokenAccountsByOwner",
             "params": [
-                pub_key,
-                {"mint": token},
+                pubkey_str,
+                {"mint": mint_str},
                 {"encoding": "jsonParsed"},
             ],
         }

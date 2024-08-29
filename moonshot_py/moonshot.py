@@ -1,4 +1,6 @@
 import struct
+import requests
+
 from config import payer_keypair, client
 from constants import *
 from solana.rpc.types import TokenAccountOpts, TxOpts
@@ -10,7 +12,6 @@ from solders.pubkey import Pubkey  # type: ignore
 from solders.transaction import VersionedTransaction  # type: ignore
 from spl.token.instructions import create_associated_token_account, get_associated_token_address
 from utils import get_token_balance, confirm_txn, derive_curve_accounts
-import requests
 
 def get_token_data(token_address):
     url = f"https://api.moonshot.cc/token/v1/solana/{token_address}"

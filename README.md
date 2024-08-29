@@ -4,7 +4,9 @@ Swap on Moonswap with Python.
 
 Updated: 8/29/2024
 
-Note: I did not implement any of the curve calculations. I used token price instead. Repo needs more testing to see if it is stable.
+Note: I did not implement any of the curve calculations. I used token price instead. 
+
+This repo needs more testing to see if it is "stable".
 
 ### Contact
 
@@ -44,8 +46,7 @@ from config import payer_keypair
 
 # SELL EXAMPLE
 mint_str = "token_to_sell"
-pubkey_str = str(payer_keypair.pubkey())
-token_balance = get_token_balance(pubkey_str, mint_str)
+token_balance = get_token_balance(mint_str)
 sell(mint_str=mint_str, token_balance=token_balance, slippage_bps=500)
 
 ```

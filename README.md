@@ -42,7 +42,6 @@ buy(mint_str=mint_str, sol_in=0.01, slippage_bps=500)
 ```
 from moonshot import sell
 from utils import get_token_balance
-from config import payer_keypair
 
 # SELL EXAMPLE
 mint_str = "token_to_sell"

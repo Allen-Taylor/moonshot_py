@@ -13,7 +13,7 @@ from solders.transaction import VersionedTransaction  # type: ignore
 from spl.token.instructions import create_associated_token_account, get_associated_token_address
 from utils import get_token_balance, confirm_txn, derive_curve_accounts
 
-def get_token_data(token_address):
+def get_token_data(token_address: str):
     url = f"https://api.moonshot.cc/token/v1/solana/{token_address}"
     
     try:
@@ -29,7 +29,7 @@ def get_token_data(token_address):
         print(f"Other error occurred: {err}")
     return None
 
-def buy(mint_str: str, sol_in: float = 0.01, slippage_bps: int = 1500):
+def buy(mint_str: str, sol_in: float = 0.01, slippage_bps: int = 500):
     try:
         # Get token data
         token_data = get_token_data(mint_str)
@@ -121,7 +121,7 @@ def buy(mint_str: str, sol_in: float = 0.01, slippage_bps: int = 1500):
     except Exception as e:
         print(e)
         
-def sell(mint_str: str, token_balance=None, slippage_bps: int=1500):
+def sell(mint_str: str, token_balance = None, slippage_bps: int = 500):
     try:
         # Retrieve token balance if not provided
         if token_balance is None:

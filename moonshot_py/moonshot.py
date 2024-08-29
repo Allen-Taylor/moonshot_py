@@ -33,11 +33,13 @@ def buy(mint_str: str, sol_in: float = 0.01, slippage_bps: int = 1500):
         token_data = get_token_data(mint_str)
         if token_data == None:
             return
-            
+
+        sol_decimal = 10**9
+        token_decimal = 10**9
         token_price = token_data['priceNative']
-        tokens_out = sol_in / float(token_price)
-        token_amount = int(tokens_out * 10**9)
-        collateral_amount = int(sol_in * LAMPORTS_PER_SOL)
+        tokens_out = float(sol_in) / float(token_price)
+        token_amount = int(tokens_out * token_decimal)
+        collateral_amount = int(sol_in * sol_decimal)
         print(f"Collateral Amount: {collateral_amount}, Token Amount: {token_amount}, Slippage (bps): {slippage_bps}")
         
         # Retrieve the public key of the owner
@@ -107,7 +109,7 @@ def buy(mint_str: str, sol_in: float = 0.01, slippage_bps: int = 1500):
         transaction = VersionedTransaction(compiled_message, [payer_keypair])
         
         # Send the transaction and print the transaction signature
-        txn_sig = client.send_transaction(transaction, opts=TxOpts(skip_preflight=False, preflight_commitment="confirmed")).value
+        txn_sig = client.send_transaction(transaction, opts=TxOpts(skip_preflight=True, preflight_commitment="confirmed")).value
         print(f"Transaction Signature: {txn_sig}")
         
         # Confirm transaction and print the confirmation result
@@ -191,7 +193,7 @@ def sell(mint_str: str, token_balance=None, slippage_bps: int=1500):
         transaction = VersionedTransaction(compiled_message, [payer_keypair])
         
         # Send the transaction and print the transaction signature
-        txn_sig = client.send_transaction(transaction, opts=TxOpts(skip_preflight=False, preflight_commitment="confirmed")).value
+        txn_sig = client.send_transaction(transaction, opts=TxOpts(skip_preflight=True, preflight_commitment="confirmed")).value
         print(f"Transaction Signature: {txn_sig}")
 
         # Confirm transaction and print the confirmation result
